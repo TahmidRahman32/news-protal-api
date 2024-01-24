@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>News Protal</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap" rel="stylesheet" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+   <body class="mx-20" onload="categoriesData()">
+      <nav>
+         <div class="navbar bg-base-100">
+            <div class="flex-1">
+               <a class="btn btn-ghost"> <span class="bg-[#5D5FEF] p-2 text-white rounded">News</span> Portal </a>
+            </div>
+            <div class="flex-none">
+               <div>
+                  <ul class="flex gap-4">
+                     <li class="text-[#5D5FEF]">Blog</li>
+                     <li class="mr-6">News</li>
+                  </ul>
+               </div>
+               <div class="dropdown dropdown-end">
+                  <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                     <div class="w-10 rounded-full">
+                        <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <p class="border mx-6 my-5"></p>
+      </nav>
+      <header class="mx-20">
+         <section>
+            <ul id="categories" class="flex justify-around gap-3 mb-8"></ul>
+         </section>
+
+         <div role="alert" class="alert alert-success">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p><span id="all-data-show">0</span> items found for category <span id="all-data-name">Entertainment</span></p>
+         </div>
+         <section>
+            <div class="navbar bg-base-100 items-center mb-10">
+               <div class="navbar-start">
+                  <div class="dropdown"></div>
+                  <a class="btn btn-ghost">Sort By View:</a>
+                  <div class="navbar-center hidden lg:flex">
+                     <ul class="menu menu-horizontal px-1">
+                        <li>
+                           <details>
+                              <summary class="bg-gray-200">Default</summary>
+                              <ul class="p-2">
+                                 <li><a>Submenu 1</a></li>
+                                 <li><a>Submenu 2</a></li>
+                              </ul>
+                           </details>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+
+               <div class="navbar-end">
+                  <button class="btn-outline my-1 px-4 py-1 rounded bg-[#5D5FEF] mx-2 border text-white"><a class="">Today’s Pick</a></button>
+
+                  <button class="btn-outline my-1 px-4 py-1 rounded text-[#5D5FEF] mx-2 border"><a class="">Trending</a></button>
+               </div>
+            </div>
+         </section>
+      </header>
+      <script src="js/index.js"></script>
+   </body>
+</html>
