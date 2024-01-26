@@ -10,12 +10,13 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap" rel="stylesheet" />
       <link rel="stylesheet" href="css/style.css" />
+      <script src="https://kit.fontawesome.com/9842331c01.js" crossorigin="anonymous"></script>
    </head>
    <body class="mx-20" onload="categoriesData()">
       <nav>
          <div class="navbar bg-base-100">
             <div class="flex-1">
-               <a class="btn btn-ghost"> <span class="bg-[#5D5FEF] p-2 text-white rounded">News</span> Portal </a>
+               <a class="btn btn-ghost font-family"> <span class="bg-[#5D5FEF] p-2 text-white rounded">News</span> Portal </a>
             </div>
             <div class="flex-none">
                <div>
@@ -40,11 +41,11 @@
             <ul id="categories" class="flex justify-around gap-3 mb-8"></ul>
          </section>
 
-         <div role="alert" class="alert alert-success">
+         <div role="alert" class="alert">
             <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <p><span id="all-data-show">0</span> items found for category <span id="all-data-name">Entertainment</span></p>
+            <p><span id="all-data-show" class="font-semibold">0</span> items found for category <span id="all-data-name" class="font-semibold">Entertainment</span></p>
          </div>
          <section>
             <div class="navbar bg-base-100 items-center mb-10">
@@ -74,6 +75,27 @@
             </div>
          </section>
       </header>
+      <main class="mx-28">
+         <section class="" id="show-card"></section>
+         <!-- modal site -->
+         <!-- Open the modal using  method -->
+         <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+
+         <!-- if there is a button in form, it will close the modal -->
+         <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+            
+            <!-- <img class="w-full" src=${details.thumbnail_url} alt="" />
+               <h3 class="font-bold text-lg">${details.author.name}</h3>
+               <p class="py-4">Press ESC key or click the button below to close</p>
+               <div class="modal-action">
+                  <form method="dialog">
+                     
+                     <button class="btn">Close</button>
+                  </form>
+               </div> -->
+            
+         </dialog>
+      </main>
       <script src="js/index.js"></script>
    </body>
 </html>
