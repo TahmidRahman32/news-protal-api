@@ -1,7 +1,11 @@
+
+let fetchData = [];
 const categoriesData = () => {
    fetch("https://openapi.programming-hero.com/api/news/categories")
       .then((res) => res.json())
-      .then((data) => showCategories(data.data.news_category));
+      .then((data) => {
+         showCategories(data.data.news_category);
+      });
 };
 const showCategories = (categories) => {
    const categoriesId = document.getElementById("categories");
@@ -18,18 +22,24 @@ const showCategories = (categories) => {
    });
 };
 
-const categoriesIdLoader = (category_id, category_name) => {
+const categoriesIdLoader = async (category_id, category_name) => {
    const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
-   fetch(url)
-      .then((res) => res.json())
-      .then((data) => dataLengthShow(data, category_name));
+      const res = await fetch(url)
+      const data = await res.json();
+      fetchData = data;
+      // console.log(fetchData, 'fetch');
+      dataLengthShow(data, category_name);
+      // .then((res) => res.json())
+      // .then((data) => {
+      //    fetchData = data;
+      //    dataLengthShow(data, category_name);
+      // });
 };
-
+console.log(fetchData);
 const dataLengthShow = (show, category_name) => {
    console.log(show.data);
-   const showLength = (document.getElementById("all-data-show").innerText = show.data.length);
-
-   const showName = (document.getElementById("all-data-name").innerText = category_name);
+   document.getElementById("all-data-show").innerText = show.data.length;
+   document.getElementById("all-data-name").innerText = category_name;
    const cardId = document.getElementById("show-card");
    cardId.innerHTML = "";
    show.data.forEach((card) => {
@@ -45,13 +55,13 @@ const dataLengthShow = (show, category_name) => {
                      <div class="flex gap-3">
                      <img class="w-10 h-10 rounded-full" src=${author.img} alt="Movie"  />
                      <div class="">
-                     <h6 class="font-semibold">${author ? author.name : "No data"}</h6>
-                     <p class="text-slate-400">${author.published_date}</p>
+                     <h6 class="font-semibold">${author ? author.name : "Not available"}</h6>
+                     <p class="text-slate-400">${author.published_date ? author.published_date : "Not available"}</p>
                      </div>
                      </div>
                       
                      <div>
-                     <p><i class="fa-solid fa-eye"></i> ${total_view}</p>
+                     <p><i class="fa-solid fa-eye"></i> ${total_view ? total_view : "Not available"}</p>
                      </div>
                         
                      <div>
@@ -89,7 +99,7 @@ const showCardDetails = (detail) => {
                <div class="card-body">
                         <h2 class="card-title">${title}<div class="badge badge-warning gap-2">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                         ${others_info.is_trending ? 'trending' : ''}
+                         ${others_info.is_trending ? "trending" : ""}
                         </div></h2>
                         <p>${details}</p>
                         <p class="border"></p>
@@ -97,13 +107,13 @@ const showCardDetails = (detail) => {
                         <div class="flex gap-3">
                            <img class="w-10 h-10 rounded-full" src=${author.img} alt="Movie"  />
                         <div class="">
-                           <h6 class="font-semibold">${author ? author.name : "No Data"}</h6>
+                           <h6 class="font-semibold">${author.name ? author.name : "Not available"}</h6>
                            <p class="text-slate-400">${author.published_date}</p>
                            </div>
                            </div>
                       
                      <div>
-                        <p><i class="fa-solid fa-eye"></i> ${total_view}</p>
+                        <p><i class="fa-solid fa-eye"></i> ${total_view ? total_view : "Not available"}</p>
                      </div>
                         
                      <div>
@@ -130,4 +140,12 @@ const showCardDetails = (detail) => {
             
          
    `;
+};
+
+const ShowTrending = () => {
+   console.log( fetchData,'up');
+   //   const trendingNews = fetchData.filter(trendingData => trendingData.others_info.is_trending === true);
+   //   console.log(trendingData);
+   // console.log(trendingNews, "up");
+   // dataLengthShow( fetchData, trendingNews);
 };
